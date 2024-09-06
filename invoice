@@ -1,16 +1,4 @@
-//
-// Created by Anshul Panwar on 06/09/24.
-//
-//
-// Created by Anshul Panwar on 06/09/24.
-//
 
-//Function overloading is a feature in C++ where two or more functions
-// can have the same name but differ in the number or types of their parameters.
-
-
-//Polymorphism in programming refers to the ability of a function,
-// object, or method to take on multiple forms.
 
 #include "iostream"
 
@@ -49,18 +37,22 @@ public:
 
 
     void setQuantity( int Quant ){
+        if(Quant < 0 ) {
+            this -> quantityOfItem = 0;
 
-        this -> quantityOfItem = Quant;
+        }
+        else{
+            this -> quantityOfItem = Quant;
+        }
 
     }
 
     void setPrice( int PPI){
 
        this-> pricePerItem = PPI;
-
+//negative dealing ,
+//
     }
-
-
 
     string getNumber( ){
         return partNumber ;
@@ -83,9 +75,9 @@ public:
 
     double getInvoiceAmount(){
         double invoice;
-        invoice = getQuantity() * getPricePerItem() ;
+        invoice = quantityOfItem * pricePerItem ;
 
-        cout << "the Invoice is " << invoice;
+        cout << "the Invoice is " << invoice << endl ;
     }
 
 
@@ -95,15 +87,16 @@ public:
 
 int main (){
 
-    Invoice I1("Ash" , "apple" , 90, 90.9 );
+    Invoice I1("101" , "apple" , 90, 90.9 );
 
     I1.getInvoiceAmount();
 
-//    I1.setQuantity(9);
-//    I1.setPrice(200);
-//
-//    I1.getInvoiceAmount();
+    I1.setQuantity(9);
+    I1.setPrice(200);
+
+    I1.getInvoiceAmount();
 
 
     return 0;
 }
+
