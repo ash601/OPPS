@@ -95,7 +95,7 @@ public:
 
 int main (){
 
-    Invoice I1("Ash" , "hehe" , 90, 90.9 );
+    Invoice I1("Ash" , "apple" , 90, 90.9 );
 
     I1.getInvoiceAmount();
 
