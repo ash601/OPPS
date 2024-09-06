@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+
+class StringModifier {
+public:
+    StringModifier(const std::string& str) : input(str) {}
+
+    void setInput(const std::string& str) {
+        input = str;
+    }
+
+    void setCharToRemove(char ch) {
+        charToRemove = ch;
+    }
+
+    std::string getUpdatedString() const {
+        std::string result;
+        for (char ch : input) {
+            if (ch != charToRemove) {
+                result += ch;
+            }
+        }
+        return result;
+    }
+
+private:
+    std::string input;
+    char charToRemove;
+};
+
+int main() {
+    std::string input;
+    char charToRemove;
+
+    std::cout << "Enter the string: ";
+    std::getline(std::cin, input);
+
+    std::cout << "Enter the character to remove: ";
+    std::cin >> charToRemove;
+
+    StringModifier modifier(input);
+    modifier.setCharToRemove(charToRemove);
+    std::string updatedString = modifier.getUpdatedString();
+
+    std::cout << "Updated string: " << updatedString << std::endl;
+
+    return 0;
+}
