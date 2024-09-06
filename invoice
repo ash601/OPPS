@@ -61,12 +61,10 @@ public:
     }
 
     void setPrice( int PPI){
-        if(PPI < 0 ) {
-            quantityOfItem = 0;
-
-        }
-        else{
-             quantityOfItem = PPI;
+        if (PPI < 0) {
+            pricePerItem = 0;  // Correct: Set pricePerItem to 0 if invalid
+        } else {
+            pricePerItem = PPI;  // Correct: Assign the value to pricePerItem
         }
 //
     }
