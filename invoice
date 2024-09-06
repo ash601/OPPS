@@ -13,13 +13,26 @@ private:
 
 public:
 
-    Invoice(string pn , string pd , int q , double ppi){
+    Invoice(string partN , string partDes , int q , double ppi){
 
 
-        this -> partNumber = pn;
-        this ->partDescription  = pd;
-        this -> quantityOfItem = q;
-        this ->pricePerItem = ppi;
+        this -> partNumber = partN;
+        this ->partDescription  = partDes;
+
+        if(q < 0){
+            this -> quantityOfItem = 0;
+
+        }else{
+            this -> quantityOfItem = q;
+
+        }
+        if (ppi < 0){
+            this ->pricePerItem = 0;
+
+        }else{
+            this ->pricePerItem = ppi;
+
+        }
 
     }
     void setNumber(string partN){
@@ -31,7 +44,7 @@ public:
 
     void setQuant( string partD ){
 
-        this -> partDescription = partD;
+        partDescription = partD;
 
     }
 
@@ -48,9 +61,13 @@ public:
     }
 
     void setPrice( int PPI){
+        if(PPI < 0 ) {
+            quantityOfItem = 0;
 
-       this-> pricePerItem = PPI;
-//negative dealing ,
+        }
+        else{
+             quantityOfItem = PPI;
+        }
 //
     }
 
@@ -87,12 +104,13 @@ public:
 
 int main (){
 
+
     Invoice I1("101" , "apple" , 90, 90.9 );
 
     I1.getInvoiceAmount();
 
     I1.setQuantity(9);
-    I1.setPrice(200);
+    I1.setPrice(2000);
 
     I1.getInvoiceAmount();
 
