@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+    int real, img;  // Real and imaginary parts of the complex number
+
+    // Constructor to initialize real and imaginary parts
+    Complex(int r = 0, int i = 0) {
+        real = r;
+        img = i;
+    }
+
+    Complex operator + (Complex c) {
+        Complex temp;
+        temp.real = real + c.real;
+        temp.img = img + c.img;
+        return temp;
+    }
+
+    Complex operator - (Complex c) {
+        Complex temp;
+        temp.real = real - c.real;
+        temp.img = img - c.img;
+        return temp;
+    }
+
+    bool operator == (Complex c) {
+        return (real == c.real && img == c.img);
+    }
+
+    void display() {
+        cout << real << " + " << img << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1(3, 2), c2(1, 4), c3;
+
+    c3 = c1 + c2;
+    cout << "Addition: ";
+    c3.display();
+
+    c3 = c1 - c2;
+    cout << "Subtraction: ";
+    c3.display();
+
+    if (c1 == c2) {
+        cout << "c1 and c2 are equal." << endl;
+    } else {
+        cout << "c1 and c2 are not equal." << endl;  
+    }
+
+    return 0;
+}
